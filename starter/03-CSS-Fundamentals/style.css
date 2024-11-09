@@ -1,0 +1,258 @@
+/*유니버셜 셀렉터에 선언된 프로퍼티는
+모든 엘리먼트에 다 적용된다.
+그리고 상속 또한 포함되지 않는다.
+가장 낮은 우선순위를 가지기 때문에
+상속된 값으로 override 하기 쉽다.
+상속되지 않는 프로퍼티에 대해 모든 엘리먼트에 적용하는
+사용 케이스에 사용될 수 있다.
+*/
+
+* {
+  /*global reset is extremely common*/
+  margin: 0;
+  padding: 0;
+}
+
+
+/*body 에 준 properties 는*/
+/*자식으로 상속된다.
+모든 프로퍼티가 상속되는 것이아니며, text 와 관련된 내용ㅇ
+주로 상속된다.*/
+body {
+  font-family: sans-serif, Arial, Helvetica;
+  color: #444444;
+
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-header {
+  background-color: #f3f3f3;
+  padding: 20px;
+  margin-bottom: 60px;
+  height: 200px;
+}
+
+.post-image {
+  width: 90%;
+  height: auto;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+.related-post-container {
+  background-color: #f3f3f3;
+  border-top: #1098ad 5px solid;
+  border-bottom: #1098ad 5px solid;
+  padding: 50px 0;
+  width: 500px;
+
+}
+
+
+h1, h2, h3 {
+  color: #1098ad;
+}
+
+h1 {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+ul, ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+li {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/*footer p {*/
+/*  color: darkcyan;*/
+/*  font-size: 14px;*/
+/*}*/
+
+/*article header p {*/
+/*  font-style: italic;*/
+/*  color: yellowgreen;*/
+/*}*/
+
+#author {
+  font-style: normal;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 16px;
+}
+
+.related-list {
+  list-style: none;
+}
+
+
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*ul {*/
+/*  list-style: none;*/
+/*}*/
+
+
+/*pseudo-class*/
+/* pseudo class 는 자식 엘리먼트가
+모두 동일한 경우에만 효과적으로 적용할 수 있다.
+article p:first-child 라고 하는 경우
+article 의 첫번쨰 p 에 적용하는 것이 아니라,
+article 의 첫번쨰 자식 엘리먼트가 p 인 친구한테 적용한다.
+그래서 ol, ul 과 같은 리스트 요소는 모두 li 를 자식으로 가지기 때문에
+이러한 경우에 유용하게 사용할 수 있다.*/
+/*li:first-child {*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*li:last-child {*/
+/*  font-style: italic;*/
+/*}*/
+
+/*li:nth-child(even) {*/
+/*  color: #7048e8;*/
+/*}*/
+
+/*li:nth-child(3) {*/
+/*  color: #099268;*/
+/*}*/
+
+/*style links*/
+/*href attribute*/
+/*LVHA: Link, Visited, Hover, Active*/
+a:link, a:visited {
+  text-decoration: none;
+  color: #1098ad;
+}
+
+a:visited {
+  color: #1098ad;
+}
+
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline wavy orangered;
+}
+
+a:active {
+  background-color: black;
+  font-style: italic;
+}
+
+/*selector priority*/
+/*
+> !important
+> inline css
+> id selector
+> class selector or pseudo class
+> element selector
+> universal selector
+
+if same priority last one will apply
+*/
+
+
+/*
+  css box model
+  content - width height
+  border - inside of element
+  padding - invisible white space around content,
+            inside of the element
+  margin - outside of the element
+            between elements
+  fill area - filled with background color
+              or background image
+*/
+
+/*
+  final element width:
+    left border
+    + left padding
+    + width of content
+    + right padding
+    + right border
+
+  final element height:
+    top border
+    + top padding
+    + height
+    + bottom padding
+    + bottom border
+
+  this is the default behavior
+  and we can change it.
+*/
+
+.like {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.like:hover {
+
+}
+
+h2::after {
+  content: "TOP!!";
+  background-color: yellowgreen;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px;
+  position: absolute;
+  top: -22px;
+  right: -10px;
+}
