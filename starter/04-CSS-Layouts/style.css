@@ -1,63 +1,60 @@
+/*유니버셜 셀렉터에 선언된 프로퍼티는
+모든 엘리먼트에 다 적용된다.
+그리고 상속 또한 포함되지 않는다.
+가장 낮은 우선순위를 가지기 때문에
+상속된 값으로 override 하기 쉽다.
+상속되지 않는 프로퍼티에 대해 모든 엘리먼트에 적용하는
+사용 케이스에 사용될 수 있다.
+*/
+
 * {
-  /* border-top: 10px solid #1098ad; */
+  /*global reset is extremely common*/
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* PAGE SECTIONS */
-body {
-  color: #444;
-  font-family: sans-serif;
 
-  border-top: 10px solid #1098ad;
+/*body 에 준 properties 는*/
+/*자식으로 상속된다.
+모든 프로퍼티가 상속되는 것이아니며, text 와 관련된 내용ㅇ
+주로 상속된다.*/
+body {
+  font-family: sans-serif, Arial, Helvetica;
+  color: #444444;
   position: relative;
 }
 
 .container {
-  width: 800px;
-  /* margin-left: auto;
-  margin-right: auto; */
+  max-width: 90%;
   margin: 0 auto;
 }
 
 .main-header {
-  background-color: #f7f7f7;
-  /* padding: 20px;
-  padding-left: 40px;
-  padding-right: 40px; */
-  padding: 20px 40px;
-  margin-bottom: 60px;
-  /* height: 80px; */
+  background-color: #f3f3f3;
+  padding: 20px;
+  /*margin-bottom: 60px;*/
 }
 
-nav {
-  font-size: 18px;
-  /* text-align: center; */
+.post-image {
+  width: 100%;
+  height: auto;
 }
 
-article {
-  margin-bottom: 60px;
-}
 
 .post-header {
   margin-bottom: 40px;
-  /* position: relative; */
 }
 
-aside {
-  background-color: #f7f7f7;
-  border-top: 5px solid #1098ad;
-  border-bottom: 5px solid #1098ad;
-  /* padding-top: 50px;
-  padding-bottom: 50px; */
-  padding: 50px 0;
-  width: 500px;
+.related-post-container {
+  background-color: rgba(205, 246, 228, 0.7);
+  border-top: #25e3ff 5px solid;
+  border-bottom: #25e3ff 5px solid;
+  padding: 30px 20px;
 }
 
-/* SMALLER ELEMENTS */
-h1,
-h2,
-h3 {
+
+h1, h2, h3 {
   color: #1098ad;
 }
 
@@ -70,12 +67,12 @@ h1 {
 h2 {
   font-size: 40px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 h3 {
   font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 h4 {
@@ -87,35 +84,34 @@ h4 {
 p {
   font-size: 22px;
   line-height: 1.5;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-ul,
-ol {
-  margin-left: 50px;
+ul, ol {
   margin-bottom: 20px;
 }
 
 li {
   font-size: 20px;
-  margin-bottom: 10px;
-  /* display: inline; */
+  margin-bottom: 20px;
 }
 
 li:last-child {
   margin-bottom: 0;
 }
 
-/* footer p {
-  font-size: 16px;
-} */
+/*footer p {*/
+/*  color: darkcyan;*/
+/*  font-size: 14px;*/
+/*}*/
 
-/* article header p {
-  font-style: italic;
-} */
+/*article header p {*/
+/*  font-style: italic;*/
+/*  color: yellowgreen;*/
+/*}*/
 
 #author {
-  font-style: italic;
+  font-style: normal;
   font-size: 18px;
 }
 
@@ -123,59 +119,55 @@ li:last-child {
   font-size: 16px;
 }
 
-.related-author {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* ul {
-  list-style: none;
-} */
-
 .related-list {
   list-style: none;
 }
 
-body {
-  /* background-color: orangered; */
-}
+/*ul {*/
+/*  list-style: none;*/
+/*}*/
 
-/* .first-li {
-  font-weight: bold;
-} */
 
-li:first-child {
-  font-weight: bold;
-}
+/*pseudo-class*/
+/* pseudo class 는 자식 엘리먼트가
+모두 동일한 경우에만 효과적으로 적용할 수 있다.
+article p:first-child 라고 하는 경우
+article 의 첫번쨰 p 에 적용하는 것이 아니라,
+article 의 첫번쨰 자식 엘리먼트가 p 인 친구한테 적용한다.
+그래서 ol, ul 과 같은 리스트 요소는 모두 li 를 자식으로 가지기 때문에
+이러한 경우에 유용하게 사용할 수 있다.*/
+/*li:first-child {*/
+/*  font-weight: bold;*/
+/*}*/
 
-li:last-child {
-  font-style: italic;
-}
+/*li:last-child {*/
+/*  font-style: italic;*/
+/*}*/
 
-li:nth-child(even) {
-  /* color: red; */
-}
+/*li:nth-child(even) {*/
+/*  color: #7048e8;*/
+/*}*/
 
-/* Misconception: this won't work! */
-article p:first-child {
-  color: red;
-}
+/*li:nth-child(3) {*/
+/*  color: #099268;*/
+/*}*/
 
-/* Styling links */
-a:link {
-  color: #1098ad;
+/*style links*/
+/*href attribute*/
+/*LVHA: Link, Visited, Hover, Active*/
+a:link, a:visited {
   text-decoration: none;
+  color: #1098ad;
 }
 
 a:visited {
-  /* color: #777; */
   color: #1098ad;
 }
 
 a:hover {
   color: orangered;
   font-weight: bold;
-  text-decoration: underline orangered;
+  text-decoration: underline wavy orangered;
 }
 
 a:active {
@@ -183,86 +175,203 @@ a:active {
   font-style: italic;
 }
 
-/* LVHA */
+/*selector priority*/
+/*
+> !important
+> inline css
+> id selector
+> class selector or pseudo class
+> element selector
+> universal selector
 
-.post-img {
-  width: 100%;
-  height: auto;
-}
+if same priority last one will apply
+*/
 
-nav a:link {
-  /* background-color: orangered;
-  margin: 20px;
-  padding: 20px;
 
-  display: block; */
+/*
+  css box model
+  content - width height
+  border - inside of element
+  padding - invisible white space around content,
+            inside of the element
+  margin - outside of the element
+            between elements
+  fill area - filled with background color
+              or background image
+*/
 
-  margin-right: 30px;
-  margin-top: 10px;
-  display: inline-block;
-}
+/*
+  final element width:
+    left border
+    + left padding
+    + width of content
+    + right padding
+    + right border
 
-nav a:link:last-child {
-  margin-right: 0;
-}
+  final element height:
+    top border
+    + top padding
+    + height
+    + bottom padding
+    + bottom border
 
-button {
-  font-size: 22px;
-  padding: 20px;
-  cursor: pointer;
+  this is the default behavior
+  and we can change it.
+*/
 
+.like {
   position: absolute;
-  /* top: 50px;
-  left: 50px; */
-  bottom: 50px;
-  right: 50px;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-h1::first-letter {
-  font-style: normal;
-  margin-right: 5px;
+.like:hover {
+
 }
 
-h3 + p::first-line {
-  /* color: red; */
-}
-
-h2 {
-  /* background-color: orange; */
-  position: relative;
-}
-
-h2::before {
-  content: "TOP";
-  background-color: #ffe70e;
-  color: #444;
+h2::after {
+  content: "TOP!!";
+  background-color: yellowgreen;
   font-size: 16px;
   font-weight: bold;
   display: inline-block;
-  padding: 5px 10px;
+  padding: 5px;
   position: absolute;
-  top: -10px;
-  right: -25px;
+  top: -22px;
+  right: -10px;
 }
 
-/* Resolving conflicts */
-/* #copyright {
-  color: red;
+/*FLOAT*/
+
+
+/*.author-img {*/
+/*  float: left;*/
+/*  margin-right: 20px;*/
+/*}*/
+
+/*.author {*/
+/*  float: left;*/
+/*}*/
+
+/*.main-header h1 {*/
+/*  float: left;*/
+/*}*/
+
+/*.main-header nav {*/
+/*  float: right;*/
+/*}*/
+
+/*.clearfix::after {*/
+/*  clear: both;*/
+/*  content: "";*/
+/*  display: block;*/
+/*}*/
+
+/*article {*/
+/*  max-width: 65%;*/
+/*  float: left;*/
+/*}*/
+
+/*aside {*/
+/*  float: right;*/
+/*}*/
+
+/*footer {*/
+/*  clear: both;*/
+/*}*/
+
+
+/*FLEX LAYOUT*/
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.copyright {
-  color: blue;
+.menu {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.text {
-  color: yellow;
+.author-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 15px;
 }
 
-footer p {
-  color: green !important;
-} */
+.author {
+  margin: 0;
+}
 
-/* nav a:link,
-nav p {
-  font-size: 18px;
-} */
+.related-post {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.related-author {
+  margin: 0;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.related-link:link {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/*.content-box {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  gap: 40px;*/
+/*  align-items: flex-start;*/
+/*}*/
+
+/*.main-content-box {*/
+/*  flex: 4*/
+/*}*/
+
+/*.related-post-container {*/
+/*  flex: 1;*/
+/*}*/
+
+
+/*GRID LAYOUT*/
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 75px;
+  row-gap: 60px;
+  align-items: start;
+}
+
+.main-header {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+
+.content-box {
+
+}
+
+.main-content-box {
+  grid-column: 1 / 2;
+}
+
+.related-post-container {
+  grid-column: 2 / 3;
+  grid-row: 2 / span 1;
+}
+
+footer {
+  grid-column: 1 / -1;
+}
