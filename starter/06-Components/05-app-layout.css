@@ -1,0 +1,78 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #444;
+  line-height: 1;
+
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+
+  display: grid;
+  grid-template-columns: 80px 400px 1fr 250px;
+  grid-template-rows: 76px 1fr;
+
+  height: 50vh;
+}
+
+nav {
+  background-color: lightpink;
+  grid-row: 1 / -1;
+}
+
+menu {
+  background-color: lightcyan;
+  grid-column: 2 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+button {
+  font-size: 16px;
+  background-color: lightsalmon;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 8px 16px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+button:last-child {
+  background-color: lightcoral;
+
+  /*마지막 요소를 끝으로 보내는 트릭*/
+  margin-left: auto;
+}
+
+section {
+  background-color: lightgray;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  overflow: scroll;
+}
+
+.email {
+  background-color: lightgreen;
+  height: 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+aside {
+  background-color: lightblue;
+}
+

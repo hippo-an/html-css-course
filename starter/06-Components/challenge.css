@@ -1,0 +1,88 @@
+/*
+  SPACING SYSTEM (px)
+  2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+  FONT SIZE SYSTEM (px)
+  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  COLOR
+  MAIN COLOR : #087f5b
+  GREY COLOR : #343a40
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #343a40;
+  line-height: 1;
+}
+
+.pagination {
+  width: 800px;
+  margin: 100px auto;
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+  a tag is inline element
+ */
+.pagination-item:link,
+.pagination-item:visited {
+  font-size: 18px;
+  text-decoration: none;
+  color: #343a40;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+}
+
+.pagination-item:hover,
+.pagination-item:active,
+.pagination-item.pagination-item--current {
+  background-color: #087f5b;
+  color: white;
+}
+
+.selected {
+  background-color: #087f5b;
+  color: #fff;
+}
+
+.pagination--btn {
+  height: 48px;
+  width: 48px;
+  border: 1px solid #087f5b;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.pagination--btn:hover {
+  background-color: #087f5b;
+}
+
+.pagination--btn:hover .btn-icon {
+  stroke: #fff;
+}
+
+.btn-icon {
+  height: 24px;
+  width: 24px;
+  stroke: #087f5b;
+}
+
+.dots {
+  color: #868e96;
+}
